@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Button, StyleSheet,Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function  CartScreen({na}) {
+export default function  CartScreen() {
 
     const [cart, setCart] = useState([]);
 
@@ -104,15 +104,24 @@ const styles = StyleSheet.create({
     },
 
     product: {
-      padding: 16,
-      backgroundColor:'#FFFFFF',
-      borderRadius:20,
+      flex:1,
+      margin:10,
+      alignItems:'center',
+      borderColor:'#ddd',
+      borderWidth:1,
+      borderRadius:10,
+      overflow:"hidden",
     }, 
 
     image: {
       width: 120,
       height: 160,
       marginBottom: 8,
+    },
+
+    price:{
+      color:'#e60000',
+      fontSize:16,
     },
 
     button: {

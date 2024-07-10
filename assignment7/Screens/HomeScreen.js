@@ -16,6 +16,7 @@ const [products, setProducts] = useState([]);
 useEffect(() => {
   
   axios.get("https://fakestoreapi.com/products")
+
     .then(response => {
 
       setProducts(response.data);
@@ -84,9 +85,9 @@ if (loading) {
   return (
     <View style={styles.loadingContainer}>
 
-      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="large" color="blue" />
 
-    </View>
+    </View>   
   );
 }
 
@@ -111,6 +112,7 @@ return (
     </View>
     <FlatList
       data={products}
+      numColumns={2}
       renderItem={renderItem}
 
       keyExtractor={item => item.id.toString()}
@@ -150,7 +152,9 @@ const styles = StyleSheet.create({
 
     story:{
       fontSize:24,
-      bottom:10
+      bottom:10,
+      fontWeight:'bold',
+      fontStyle:'normal',
     },
     List:{
       left:260,
@@ -170,9 +174,14 @@ const styles = StyleSheet.create({
         padding: 16,
       },
       product: {
-        padding: 16,
-        backgroundColor:'#FFFFFF',
-        borderRadius:20,
+       flex:1,
+       margin:10,
+       alignItems:'center',
+       borderColor:'#ddd',
+       borderWidth:1,
+       borderRadius:10,
+       overflow:"hidden",
+       backgroundColor:'#FFFFFF'
       },
 
       image: {
@@ -180,9 +189,14 @@ const styles = StyleSheet.create({
         height: 190,
         marginBottom: 8,
       },
+
+      title:{
+        fontWeight:'700',
+      },
       price:{
-        color:'red',
-        fontSize:16
+        color:'#e60000',
+        fontSize:16,
+        fontWeight:'700',
       },
       buttonText: {
         color: '#fff',
